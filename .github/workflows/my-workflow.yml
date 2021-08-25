@@ -14,9 +14,17 @@ jobs:
       - name: hello-action
         uses: ./.github/actions/hello-world
 
+      - name: npm install
+        run: npm ci
+        working-directory: ./.github/actions/joke-action
+
       - name: ha-ha
         uses: ./.github/actions/joke-action
         id: jokes
+
+      - name: npm install
+        run: npm ci
+        working-directory: ./.github/actions/issue-maker
 
       - name: create-issue
         uses: ./.github/actions/issue-maker
